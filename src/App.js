@@ -301,7 +301,7 @@ function App() {
           content: msg.text
         }))
       }, {
-        timeout: 60000,
+        timeout: 20000, // Reduced timeout
         headers: {
           'Content-Type': 'application/json'
         }
