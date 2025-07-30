@@ -54,11 +54,16 @@ function App() {
     }
   }, [transcript]);
 
+  // API base URL configuration
+  const API_BASE_URL = process.env.NODE_ENV === 'production' 
+    ? process.env.REACT_APP_API_URL || 'https://therapist-ai-priya-backend.onrender.com'
+    : 'http://localhost:5000';
+
   // Check server status on component mount
   useEffect(() => {
     const checkServerStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/health');
+        const response = await axios.get(`${API_BASE_URL}/health`);
         setServerStatus(response.data.apiKeyConfigured ? 'connected' : 'demo');
       } catch (error) {
         setServerStatus('disconnected');
@@ -288,7 +293,7 @@ function App() {
         traumaAware: true
       };
 
-      const res = await axios.post('http://localhost:5001/message', {
+      const res = await axios.post(`${API_BASE_URL}/message`, {
         message: userMessage,
         context: context,
         history: newMessages.map((msg) => ({
@@ -412,7 +417,7 @@ function App() {
 
   // Fetch journal entries
   useEffect(() => {
-    axios.get('http://localhost:5001/journal').then(res => {
+    axios.get(`${API_BASE_URL}/journal`).then(res => {
       setJournal(res.data || []);
     }).catch(() => {});
   }, []);
@@ -471,7 +476,7 @@ function App() {
 
   // Fetch voice memories
   useEffect(() => {
-    axios.get('http://localhost:5001/voice-memories').then(res => {
+    axios.get(`${API_BASE_URL}/voice-memories`).then(res => {
       setVoiceMemories(res.data || []);
     }).catch(() => {});
   }, []);
@@ -512,18 +517,18 @@ function App() {
     const blob = new Blob(audioChunks, { type: 'audio/webm' });
     const formData = new FormData();
     formData.append('voiceNote', blob, `voice_${Date.now()}.webm`);
-    await axios.post('http://localhost:5001/voice-memories', formData);
+    await axios.post(`${API_BASE_URL}/voice-memories`, formData);
     setAudioChunks([]);
     setRecordConsent(false);
     // Refresh list
-    axios.get('http://localhost:5001/voice-memories').then(res => {
+    axios.get(`${API_BASE_URL}/voice-memories`).then(res => {
       setVoiceMemories(res.data || []);
     });
   };
 
   // Play voice note
   const playVoiceNote = async (id) => {
-    const res = await axios.get(`http://localhost:5001/voice-memories/${id}`, { responseType: 'blob' });
+    const res = await axios.get(`${API_BASE_URL}/voice-memories/${id}`, { responseType: 'blob' });
     const url = URL.createObjectURL(res.data);
     if (audioRef.current) {
       audioRef.current.src = url;
@@ -636,7 +641,7 @@ function App() {
           📝
         </button>
         <button onClick={() => setShowVoiceMemories(!showVoiceMemories)} className="voice-memories-toggle" title="Show/Hide Voice Memories">
-          🎤��
+          🎤
         </button>
         <button onClick={() => setShowMoodCalendar(!showMoodCalendar)} className="mood-calendar-toggle" title="Show/Hide Mood Calendar">
           📆
