@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   const [messages, setMessages] = useState([
-    { sender: 'ai', text: "Hi Slow Drive, I'm Dr. Sarah, your AI therapist. I understand your journey with emotional neglect and perfectionism. I'm here to provide a safe space where your feelings are valid and you don't have to be perfect. How are you feeling today?" }
+    { sender: 'ai', text: "Hi there! I'm Numa, your AI therapist. I'm here to provide a safe space where your feelings are valid and you don't have to be perfect. How are you feeling today?" }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +19,7 @@ function App() {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [showTraumaSupport, setShowTraumaSupport] = useState(false);
   const [userProfile, setUserProfile] = useState({
-    name: 'Slow Drive',
+    name: 'You',
     issues: [],
     preferences: {},
     lastSession: null,
@@ -656,7 +656,7 @@ function App() {
       </div>
       
       <div className="chat-box">
-        <h1>Slow Drive's Therapist AI</h1>
+        <h1>Numa - AI Therapist</h1>
         
         {showTraumaSupport && <TraumaSupport />}
         {showJournal && <JournalPanel />}
@@ -675,10 +675,10 @@ function App() {
         <div className="messages">
           {messages.map((msg, i) => (
             <div key={i} className={`message ${msg.sender}`}>
-              <strong>{msg.sender === 'ai' ? 'Dr. Sarah' : 'Slow Drive'}:</strong> {msg.text}
+              <strong>{msg.sender === 'ai' ? 'Numa' : 'You'}:</strong> {msg.text}
             </div>
           ))}
-          {isLoading && <div className="message ai loading">Dr. Sarah is typing...</div>}
+          {isLoading && <div className="message ai loading">Numa is typing...</div>}
         </div>
         
         {sessionSummary && (
