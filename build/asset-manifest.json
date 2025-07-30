@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.a0072bf8.css",
-    "main.js": "/static/js/main.6ad978ac.js",
-    "static/js/453.3a9e6b0c.chunk.js": "/static/js/453.3a9e6b0c.chunk.js",
-    "index.html": "/index.html",
-    "main.a0072bf8.css.map": "/static/css/main.a0072bf8.css.map",
-    "main.6ad978ac.js.map": "/static/js/main.6ad978ac.js.map",
-    "453.3a9e6b0c.chunk.js.map": "/static/js/453.3a9e6b0c.chunk.js.map"
+    "main.css": "/harsh8864/slow-drive-ai-frontend/static/css/main.a0072bf8.css",
+    "main.js": "/harsh8864/slow-drive-ai-frontend/static/js/main.56dfa1bc.js",
+    "static/js/453.1f5a01c5.chunk.js": "/harsh8864/slow-drive-ai-frontend/static/js/453.1f5a01c5.chunk.js",
+    "index.html": "/harsh8864/slow-drive-ai-frontend/index.html",
+    "main.a0072bf8.css.map": "/harsh8864/slow-drive-ai-frontend/static/css/main.a0072bf8.css.map",
+    "main.56dfa1bc.js.map": "/harsh8864/slow-drive-ai-frontend/static/js/main.56dfa1bc.js.map",
+    "453.1f5a01c5.chunk.js.map": "/harsh8864/slow-drive-ai-frontend/static/js/453.1f5a01c5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a0072bf8.css",
-    "static/js/main.6ad978ac.js"
+    "static/js/main.56dfa1bc.js"
   ]
 }

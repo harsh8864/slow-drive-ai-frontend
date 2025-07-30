@@ -656,7 +656,10 @@ function App() {
       </div>
       
       <div className="chat-box">
-        <h1>Numa - AI Therapist</h1>
+        <div className="app-header">
+          <img src="/logo.svg" alt="Numa Logo" className="app-logo" />
+          <h1>Numa - AI Therapist</h1>
+        </div>
         
         {showTraumaSupport && <TraumaSupport />}
         {showJournal && <JournalPanel />}
